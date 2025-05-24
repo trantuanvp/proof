@@ -1,0 +1,562 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff0f5; /* Light pink background */
+    color: #333;
+    font-size: 12pt;
+    /* Add Noto Sans CJK for Vietnamese characters */
+    font-family: "Noto Sans CJK SC", "WenQuanYi Zen Hei", 'Times New Roman', Times, serif;
+}
+
+.container {
+    width: 210mm; /* A4 width */
+    min-height: 297mm; /* A4 height */
+    margin: 20px auto;
+    padding: 15mm 20mm; /* Padding inside the border */
+    background-color: #ffffff;
+    border: 10px solid transparent;
+    border-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><style>line{stroke:%23E75480;stroke-width:1;}</style><line x1="0" y1="0" x2="100" y2="100"/><line x1="100" y1="0" x2="0" y2="100"/><line x1="50" y1="0" x2="50" y2="100"/><line x1="0" y1="50" x2="100" y2="50"/></svg>') 30 round;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    /* Subtle background pattern */
+    background-image: 
+        linear-gradient(45deg, rgba(255, 192, 203, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 192, 203, 0.1) 75%, rgba(255, 192, 203, 0.1)),
+        linear-gradient(-45deg, rgba(255, 192, 203, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 192, 203, 0.1) 75%, rgba(255, 192, 203, 0.1));
+    background-size: 20px 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #8B0000; /* Dark Red */
+    margin: 0;
+}
+
+.header h2 {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #8B0000; /* Dark Red */
+    margin: 5px 0 10px 0;
+}
+
+.header .separator {
+    margin: 5px auto 15px auto;
+    color: #8B0000;
+}
+
+.coat-of-arms img {
+    width: 60px; /* Adjusted size */
+    height: auto;
+    display: block;
+    margin: 15px auto;
+}
+
+.header h3 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #8B0000; /* Dark Red */
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+}
+
+.serial-number {
+    text-align: right;
+    font-size: 11pt;
+    margin-top: -20px; /* Adjust position */
+}
+
+.parties, .agreement, .confirmation {
+    margin-bottom: 25px;
+}
+
+.parties p strong, .agreement h4, .confirmation h4 {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.party-section {
+    margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: 2px solid #E75480; /* Pink accent line */
+}
+
+.party-section h4 {
+    font-weight: bold;
+    color: #8B0000; /* Dark Red */
+    margin-bottom: 10px;
+    font-size: 13pt;
+}
+
+.parties p, .agreement p, .confirmation p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.agreement-lines p {
+    font-family: monospace; /* To keep dots aligned */
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.confirmation {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.signatures {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.signature-block, .witness-section {
+    width: 45%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.signature-block h5, .witness-section h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 12pt;
+}
+
+.signature-block p, .witness-section p {
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.fingerprint-box {
+    border: 1px dashed #aaa;
+    height: 60px;
+    width: 80px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9pt;
+    color: #999;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fingerprint-box:hover {
+    background-color: #f0f0f0;
+    border-color: #E75480;
+}
+
+.fingerprint-box.stamped {
+    background-color: rgba(231, 84, 128, 0.1);
+    border-color: #E75480;
+}
+
+.witness-section {
+    width: 100%; /* Full width for witness */
+    margin-top: 30px;
+}
+
+.witness-fingerprint {
+     margin: 10px auto; /* Center witness fingerprint box */
+}
+
+/* Ensure dots are visible */
+p {
+    color: #333; /* Ensure text color is dark enough */
+}
+
+/* Add specific styles for dotted lines if needed */
+.dotted-line {
+    border-bottom: 1px dotted #666;
+    display: inline-block;
+    min-width: 150px; /* Adjust as needed */
+}
+
+/* New styles for fingerprint simulation */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff0f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-content {
+    max-width: 600px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid #E75480;
+}
+
+.welcome-title {
+    color: #8B0000;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.fingerprint-area {
+    width: 300px;
+    height: 200px;
+    border: 2px dashed #E75480;
+    border-radius: 10px;
+    margin: 0 auto 30px;
+    position: relative;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fingerprint-instruction {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.fingerprint-scanner {
+    width: 80%;
+    height: 10px;
+    background-color: rgba(231, 84, 128, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: 20%;
+        background-color: rgba(231, 84, 128, 0.3);
+    }
+    50% {
+        top: 80%;
+        background-color: rgba(231, 84, 128, 0.7);
+    }
+    100% {
+        top: 20%;
+        background-color: rgba(231, 84, 128, 0.3);
+    }
+}
+
+.fingerprint-icon {
+    width: 80px;
+    height: 100px;
+    margin: 0 auto 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s, filter 0.3s;
+}
+
+.fingerprint-icon.active {
+    box-shadow: 0 0 30px 10px #E75480, 0 0 60px 20px #fff0f5;
+    filter: drop-shadow(0 0 10px #E75480);
+    background: rgba(231,84,128,0.08);
+    border-radius: 50%;
+}
+
+.fingerprint-progress {
+    width: 80%;
+    height: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.fingerprint-progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #E75480;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.btn-continue {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: none;
+}
+
+.btn-continue:hover {
+    background-color: #E75480;
+}
+
+/* Nút lưu ảnh */
+.btn-save-image {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.btn-save-image:hover {
+    background-color: #E75480;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+.btn-save-image:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Animated text filling effect */
+.typing-text {
+    border-bottom: 1px dotted #666;
+    display: inline-block;
+    min-width: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.typing-text::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    height: 80%;
+    width: 2px;
+    background-color: #8B0000;
+    animation: blink 1s infinite;
+    transform: translateY(-50%);
+    display: none;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Fingerprint stamp effect */
+.fingerprint-stamp {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* Contract container visibility */
+.contract-container {
+    display: none;
+    padding-bottom: 60px;
+}
+
+/* Placeholder dots for typing effect */
+.placeholder-dots:empty::before {
+    content: '................................................................................'; /* 80 dấu chấm */
+    color: #d3bebe;
+    font-family: monospace;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Đảm bảo các dòng thỏa thuận đều chiều dài */
+.agreement-lines .placeholder-dots {
+    min-width: 480px;
+    display: inline-block;
+    font-family: monospace;
+}
+
+@media (max-width: 768px) {
+    .agreement-lines .placeholder-dots {
+        min-width: 200px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10mm;
+        margin: 10px auto;
+    }
+    
+    .welcome-content {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .fingerprint-area {
+        width: 90%;
+        height: 180px;
+    }
+    
+    .signatures {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .signature-block {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+        padding: 0;
+    }
+    .container {
+        width: 100vw;
+        min-width: unset;
+        min-height: unset;
+        margin: 0;
+        padding: 8vw 2vw 2vw 2vw;
+        border-width: 0;
+        box-shadow: none;
+        background-image: none;
+    }
+    .header {
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    .header h1, .header h2, .header h3 {
+        font-size: 1.1em;
+    }
+    .coat-of-arms img {
+        width: 40px;
+        margin: 10px auto;
+    }
+    .serial-number {
+        font-size: 12px;
+        margin-top: 0;
+    }
+    .welcome-content {
+        width: 98vw;
+        max-width: 100vw;
+        padding: 10px 2vw;
+        border-radius: 8px;
+    }
+    .welcome-title {
+        font-size: 18px;
+    }
+    .welcome-text {
+        font-size: 14px;
+    }
+    .fingerprint-area {
+        width: 98vw;
+        min-width: unset;
+        height: 140px;
+        padding: 0;
+    }
+    .fingerprint-icon {
+        width: 50px;
+        height: 60px;
+    }
+    .fingerprint-progress {
+        width: 95vw;
+        min-width: unset;
+    }
+    .agreement-lines .placeholder-dots {
+        min-width: 120px;
+        font-size: 13px;
+    }
+    .party-section {
+        padding-left: 6px;
+        margin-bottom: 10px;
+    }
+    .signatures {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .signature-block, .witness-section {
+        width: 98vw;
+        margin-top: 10px;
+    }
+    .btn-save-image {
+        font-size: 15px;
+        padding: 10px 8vw;
+        margin: 16px auto;
+        width: 95vw;
+        box-sizing: border-box;
+    }
+    .agreement-lines p {
+        font-size: 13px;
+    }
+    .confirmation {
+        padding-top: 10px;
+    }
+    .witness-section {
+        margin-top: 10px;
+    }
+    .witness-section > div {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+}
+
+/* Sát dấu chấm, không padding/margin dư thừa cho trường điền tự động */
+.typing-text.placeholder-dots {
+    display: inline-block;
+    min-width: 120px;
+    border-bottom: 1px dotted #666;
+    padding: 0;
+    margin: 0 2px;
+    vertical-align: middle;
+    background: none !important;
+}
+
+/* Các trường ngắn hơn có thể thêm class .short nếu muốn */
+.typing-text.placeholder-dots.short {
+    min-width: 60px;
+}
+
+/* Loại bỏ dấu chấm nền nếu đã có border-bottom */
+.placeholder-dots:empty::before {
+    display: none;
+}

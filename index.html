@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bằng chứng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Màn hình chào mừng đầu tiên -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <h1 class="welcome-title">Xin chào bạn cute, xinh gái trước màn hình nha <br> <img style="width: 250px;" src="assets/xinchao.gif" alt=""></h1>
+            <p class="welcome-text" id="cuteWelcomeText">Bạn là người may mắn nhất trên thế giới này đó baby à :)))</p>
+            <button class="btn-continue" id="btnWelcomeContinue" style="display:inline-block; margin-top:24px;">Tiếp tục</button>
+        </div>
+    </div>
+
+    <!-- Màn hình vân tay -->
+    <div class="welcome-screen" id="fingerprintScreen" style="display:none;">
+        <div class="welcome-content">
+            <h1 class="welcome-title">Lăn vân tay</h1>
+            <p class="welcome-text">Vui lòng đặt hai ngón tay (ngón trỏ trái và ngón trỏ phải) vào khu vực quét vân tay bên dưới để đến bước tiếp theo.</p>
+            <div class="fingerprint-area" id="fingerprintArea">
+                <p class="fingerprint-instruction">Đặt hai ngón tay vào đây</p>
+                <div class="fingerprint-icon" id="fingerprintIcon">
+                    <!-- SVG fingerprint -->
+                    <svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="40" cy="50" rx="30" ry="45" stroke="#222" stroke-width="2"/>
+                        <ellipse cx="40" cy="50" rx="22" ry="35" stroke="#222" stroke-width="1.5"/>
+                        <ellipse cx="40" cy="50" rx="15" ry="25" stroke="#222" stroke-width="1"/>
+                        <path d="M40 95 Q45 80 40 65 Q35 80 40 95" stroke="#222" stroke-width="1" fill="none"/>
+                        <path d="M40 80 Q50 70 40 60 Q30 70 40 80" stroke="#222" stroke-width="1" fill="none"/>
+                        <path d="M40 65 Q47 60 40 55 Q33 60 40 65" stroke="#222" stroke-width="1" fill="none"/>
+                    </svg>
+                </div>
+                <div class="fingerprint-scanner"></div>
+                <div class="fingerprint-progress">
+                    <div class="fingerprint-progress-bar" id="fingerprintProgressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hợp đồng hôn nhân -->
+    <div class="contract-container" id="contractContainer">
+        <div class="container">
+            <div class="header">
+                <h1>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h1>
+                <h2>Độc lập - Tự do - Hạnh phúc</h2>
+                <div class="separator">---</div>
+                <div class="coat-of-arms">
+                    <img src="assets/quochuy.png" alt="Quốc huy Việt Nam">
+                </div>
+                <h3>Giấy kết hôn điện tử</h3>
+                <p class="serial-number">Số: <span class="typing-text placeholder-dots" id="serialNumber"></span></p>
+            </div>
+
+            <div class="parties">
+                <p><strong>CHÚNG TÔI, NHỮNG NGƯỜI KÝ TÊN DƯỚI ĐÂY:</strong></p>
+                <div class="party-section">
+                    <h4>VỢ:</h4>
+                    <p>Họ, chữ đệm, tên vợ: <span class="typing-text placeholder-dots" id="wifeName"></span></p>
+                    <p>Ngày, tháng, năm sinh: <span class="typing-text placeholder-dots" id="wifeBirthday"></span></p>
+                    <p>Dân tộc: <span class="typing-text placeholder-dots" id="wifeEthnicity"></span></p>
+                    <p>Quốc tịch: <span class="typing-text placeholder-dots" id="wifeNationality"></span></p>
+                    <p>Nơi cư trú: <span class="typing-text placeholder-dots" id="wifeAddress"></span></p>
+                    <p>Giấy tờ tùy thân (Số, ngày cấp, nơi cấp): <span class="typing-text placeholder-dots" id="wifeID"></span></p>
+                </div>
+                <div class="party-section">
+                    <h4>CHỒNG:</h4>
+                    <p>Họ, chữ đệm, tên chồng: <span class="typing-text placeholder-dots" id="husbandName"></span></p>
+                    <p>Ngày, tháng, năm sinh: <span class="typing-text placeholder-dots" id="husbandBirthday"></span></p>
+                    <p>Dân tộc: <span class="typing-text placeholder-dots" id="husbandEthnicity"></span></p>
+                    <p>Quốc tịch: <span class="typing-text placeholder-dots" id="husbandNationality"></span></p>
+                    <p>Nơi cư trú: <span class="typing-text placeholder-dots" id="husbandAddress"></span></p>
+                    <p>Giấy tờ tùy thân (Số, ngày cấp, nơi cấp): <span class="typing-text placeholder-dots" id="husbandID"></span></p>
+                </div>
+            </div>
+
+            <div class="agreement">
+                <h4>CÁC ĐIỀU KHOẢN THỎA THUẬN:</h4>
+                <p><i>(Phần này để trống để các bên tự điền các thỏa thuận cụ thể về tài sản, con cái, quyền và nghĩa vụ, v.v. theo quy định của pháp luật)</i></p>
+                <div class="agreement-lines">
+                    <p><span class="typing-text placeholder-dots" id="agreement1"></span></p>
+                    <p><span class="typing-text placeholder-dots" id="agreement2"></span></p>
+                    <p><span class="typing-text placeholder-dots" id="agreement3"></span></p>
+                    <p><span class="typing-text placeholder-dots" id="agreement4"></span></p>
+                    <p><span class="typing-text placeholder-dots" id="agreement5"></span></p>
+                </div>
+            </div>
+
+            <div class="confirmation">
+                <h4>XÁC NHẬN:</h4>
+                <p>Chúng tôi đã đọc kỹ, hiểu rõ và hoàn toàn tự nguyện đồng ý với các điều khoản nêu trên.</p>
+                <p>Nơi lập hợp đồng: <span class="typing-text placeholder-dots" id="contractLocation"></span></p>
+                <p>Ngày, tháng, năm lập hợp đồng: <span class="typing-text placeholder-dots" id="contractDate"></span></p>
+                
+                <div class="signatures">
+                    <div class="signature-block">
+                        <h5>VỢ</h5>
+                        <p>(Ký, ghi rõ họ, chữ đệm, tên)</p>
+                        <div style="font-weight:bold; font-size:16px; margin-bottom:4px;">Nhi</div>
+                        <div style="font-family: 'Dancing Script', cursive; font-size:20px; color:#8B0000; margin-bottom:8px;">Vũ Tuyết Nhi</div>
+                    </div>
+                    <div class="signature-block">
+                        <h5>CHỒNG</h5>
+                        <p>(Ký, ghi rõ họ, chữ đệm, tên)</p>
+                        <div style="font-weight:bold; font-size:16px; margin-bottom:4px;">Tuân</div>
+                        <div style="font-family: 'Dancing Script', cursive; font-size:20px; color:#8B0000; margin-bottom:8px;">Trần Tiến Tuân</div>
+                    </div>
+                </div>
+                <div class="witness-section">
+                    <h5>NGƯỜI LÀM CHỨNG (Nếu có)</h5>
+                    <p>(Ký, ghi rõ họ, chữ đệm, tên, địa chỉ, giấy tờ tùy thân)</p>
+                    <div style="display: flex; justify-content: center; gap: 60px; margin-top: 20px;">
+                        <div style="text-align:center;">
+                            <div style="font-weight:bold; font-size:16px; margin-bottom:4px;">Tuân</div>
+                            <div style="font-family: 'Dancing Script', cursive; font-size:18px; color:#8B0000; margin-bottom:8px;">Trần Tiến Tuân</div>
+                        </div>
+                        <div style="text-align:center;">
+                            <div style="font-weight:bold; font-size:16px; margin-bottom:4px;">Nhi</div>
+                            <div style="font-family: 'Dancing Script', cursive; font-size:18px; color:#8B0000; margin-bottom:8px;">Vũ Tuyết Nhi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
